@@ -1,0 +1,25 @@
+#!/bin/bash
+
+########################################################################################
+## This Script will list all homebrew installed applications for audit and reporting. ##
+########################################################################################
+
+cd /Home
+currentUser=$(stat -f %Su /dev/console)
+
+# For M1s
+if [[ -d /opt/homebrew/ ]]; then
+
+        brewList=$(sudo -u $currentUser bash -c '/opt/homebrew/bin/brew list')
+        echo "<result>${brewList//$'\n'/, }</result>"
+
+# For Intels
+elif [[ -d /usr/local/Homebrew ]]; then
+
+        brewList=$(sudo -u $currentUser bash -c '/usr/local/bin/brew list')
+        echo "<result>${brewList//$'\n'/, }</result>"
+
+else
+        echo "<result>Not Installed</result>"
+fi
+exit 0
