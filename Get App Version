@@ -1,0 +1,13 @@
+#!/bin/sh
+
+##Change variable below 
+
+Application=$<NameofApp>
+if [ -d /Applications/$Application.app ]; then
+    AppVersion=`/usr/bin/defaults read /Applications/Microsoft\ Defender.app/Contents/Info.plist CFBundleShortVersionString`
+    echo "<result>$AppVersion</result>"
+else
+    echo "<result>Not installed</result>"
+fi
+
+exit 0
