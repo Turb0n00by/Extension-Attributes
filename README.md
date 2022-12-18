@@ -1,2 +1,2 @@
 # Extension-Attributes
-Extension Attributes for MDM
+Extension Attributes for your MDM provider
